@@ -1,6 +1,12 @@
 import express from 'express';
 import path from 'node:path';
 
+//My fix for error "__dirname" is not defined in ES module scope
+import { fileURLToPath } from 'node:url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 import db from './config/connection.js';
 import routes from './routes/index.js';
 
